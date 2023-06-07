@@ -1,0 +1,49 @@
+{
+    "name": "guifavere/laravel-simple-scopes",
+    "description": "Simple scopes for laravel projects",
+    "keywords": [
+        "laravel",
+        "laravel-scopes"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "guifavere",
+            "email": "guilherme.favere@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GuiFavere\\LaravelSimpleScopes\\Providers\\LaravelSimpleScopesServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^7.4",
+        "illuminate/database": "^8.83",
+        "nesbot/carbon": "^2.67"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.27",
+        "laravel/legacy-factories": "^1.0.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "GuiFavere\\LaravelSimpleScopes\\": "src"
+        },
+        "classmap": [
+            "database/factories"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GuiFavere\\LaravelSimpleScopes\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi"
+    }
+}
