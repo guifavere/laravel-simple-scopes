@@ -21,16 +21,8 @@
             ]
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/guifavere/laravel-simple-scopes"
-        }
-    ],
     "require": {
-        "php": "^7.4",
-        "illuminate/database": "^8.83",
-        "nesbot/carbon": "^2.67"
+        "php": "^7.4"
     },
     "require-dev": {
         "orchestra/testbench": "^6.27",
