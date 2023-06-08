@@ -8,9 +8,9 @@ class TestCase extends OrchestraTestCase
 {
     public function setUp(): void
     {
-      parent::setUp();
+        parent::setUp();
 
-      $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-      $this->withFactories(__DIR__.'/../database/factories');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->withFactories(__DIR__.'/../database/factories');
     }
 }
