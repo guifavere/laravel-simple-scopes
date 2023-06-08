@@ -5,6 +5,7 @@ namespace GuiFavere\LaravelSimpleScopes\Tests\Dates;
 use GuiFavere\LaravelSimpleScopes\Dates\DateRules;
 use GuiFavere\LaravelSimpleScopes\Tests\Models\Resource;
 use GuiFavere\LaravelSimpleScopes\Tests\TestCase;
+use Illuminate\Support\Facades\DB;
 
 function fakeRecords(): array
 {
@@ -28,7 +29,7 @@ class DateRulesTest extends TestCase
 
         now()->setTestNow('2023-05-10 09:20:05');
 
-        collect(fakeRecords())->each(fn (array $record) => factory(Resource::class)->create($record));
+        DB::table('resources')->insert(fakeRecords());
     }
 
     /** @test */
