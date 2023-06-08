@@ -1,6 +1,6 @@
 <?php
 
-namespace GuiFavere\LaravelSimpleScopes\Tests;
+namespace GuiFavere\LaravelSimpleScopes\Tests\Models;
 
 use GuiFavere\LaravelSimpleScopes\SimpleScopes;
 use Illuminate\Database\Eloquent\Model;
