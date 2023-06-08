@@ -1,8 +1,10 @@
 <?php
 
-namespace GuiFavere\LaravelSimpleScopes\Tests;
+namespace GuiFavere\LaravelSimpleScopes\Tests\Dates;
 
+use GuiFavere\LaravelSimpleScopes\Dates\DateRules;
 use GuiFavere\LaravelSimpleScopes\Tests\Models\Resource;
+use GuiFavere\LaravelSimpleScopes\Tests\TestCase;
 
 function fakeRecords(): array
 {
@@ -15,7 +17,10 @@ function fakeRecords(): array
     ];
 }
 
-class SimpleScopesTest extends TestCase
+/**
+ * @runTestsInSeparateProcesses
+ */
+class DateRulesTest extends TestCase
 {
     public function setUp(): void
     {
@@ -29,24 +34,29 @@ class SimpleScopesTest extends TestCase
     /** @test */
     public function should_retrieve_all_records_from_a_given_date(): void
     {
-        $this->assertEquals(4, Resource::from('2023-05-10')->count());
+        $this->assertEquals(4, $this->getDateRules()->from('2023-05-10')->count());
     }
 
     /** @test */
     public function should_retrieve_all_records_to_a_given_date(): void
     {
-        $this->assertEquals(1, Resource::to('2023-05-09')->count());
+        $this->assertEquals(1, $this->getDateRules()->to('2023-05-09')->count());
     }
 
     /** @test */
     public function should_retrieve_all_records_modified_from_a_given_date(): void
     {
-        $this->assertEquals(2, Resource::modifiedFrom('2023-05-11')->count());
+        $this->assertEquals(2, $this->getDateRules()->modifiedFrom('2023-05-11')->count());
     }
 
     /** @test */
     public function should_retrieve_all_records_modified_to_a_given_date(): void
     {
-        $this->assertEquals(3, Resource::modifiedTo('2023-05-10')->count());
+        $this->assertEquals(3, $this->getDateRules()->modifiedTo('2023-05-10')->count());
+    }
+
+    private function getDateRules(): DateRules
+    {
+        return DateRules::new(Resource::query());
     }
 }
