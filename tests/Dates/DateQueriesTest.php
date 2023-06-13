@@ -2,7 +2,7 @@
 
 namespace GuiFavere\LaravelSimpleScopes\Tests\Dates;
 
-use GuiFavere\LaravelSimpleScopes\Dates\DateBuilder;
+use GuiFavere\LaravelSimpleScopes\Dates\DateQueries;
 use GuiFavere\LaravelSimpleScopes\Tests\Models\Resource;
 use GuiFavere\LaravelSimpleScopes\Tests\TestCase;
 use Illuminate\Database\Eloquent\Builder;
@@ -11,13 +11,13 @@ use Mockery\MockInterface;
 /**
  * @runTestsInSeparateProcesses
  */
-class DateBuilderTest extends TestCase
+class DateQueriesTest extends TestCase
 {
     /** @var MockInterface */
     private $dateRules;
 
-    /** @var DateBuilder */
-    private $dateBuilder;
+    /** @var DateQueries */
+    private $dateQueries;
 
     public function setUp(): void
     {
@@ -28,8 +28,8 @@ class DateBuilderTest extends TestCase
             fn (MockInterface $mock) => $mock->shouldReceive('new')->andReturnSelf(),
         );
 
-        $this->dateBuilder = new class (Resource::query()->getQuery()) extends Builder {
-            use DateBuilder;
+        $this->dateQueries = new class (Resource::query()->getQuery()) extends Builder {
+            use DateQueries;
         };
     }
 
@@ -38,9 +38,9 @@ class DateBuilderTest extends TestCase
     {
         $this->dateRules->shouldReceive('from')->andReturn($this->mock(Builder::class));
 
-        $this->dateBuilder->from('2023-05-10');
+        $this->dateQueries->from('2023-05-10');
 
-        $this->dateRules->shouldHaveReceived('new')->once()->with($this->dateBuilder);
+        $this->dateRules->shouldHaveReceived('new')->once()->with($this->dateQueries);
         $this->dateRules->shouldHaveReceived('from')->once()->with('2023-05-10');
     }
 
@@ -49,9 +49,9 @@ class DateBuilderTest extends TestCase
     {
         $this->dateRules->shouldReceive('to')->andReturn($this->mock(Builder::class));
 
-        $this->dateBuilder->to('2023-01-07');
+        $this->dateQueries->to('2023-01-07');
 
-        $this->dateRules->shouldHaveReceived('new')->once()->with($this->dateBuilder);
+        $this->dateRules->shouldHaveReceived('new')->once()->with($this->dateQueries);
         $this->dateRules->shouldHaveReceived('to')->once()->with('2023-01-07');
     }
 
@@ -60,9 +60,9 @@ class DateBuilderTest extends TestCase
     {
         $this->dateRules->shouldReceive('modifiedFrom')->andReturn($this->mock(Builder::class));
 
-        $this->dateBuilder->modifiedFrom('2023-12-26');
+        $this->dateQueries->modifiedFrom('2023-12-26');
 
-        $this->dateRules->shouldHaveReceived('new')->once()->with($this->dateBuilder);
+        $this->dateRules->shouldHaveReceived('new')->once()->with($this->dateQueries);
         $this->dateRules->shouldHaveReceived('modifiedFrom')->once()->with('2023-12-26');
     }
 
@@ -71,9 +71,9 @@ class DateBuilderTest extends TestCase
     {
         $this->dateRules->shouldReceive('modifiedTo')->andReturn($this->mock(Builder::class));
 
-        $this->dateBuilder->modifiedTo('2023-11-30');
+        $this->dateQueries->modifiedTo('2023-11-30');
 
-        $this->dateRules->shouldHaveReceived('new')->once()->with($this->dateBuilder);
+        $this->dateRules->shouldHaveReceived('new')->once()->with($this->dateQueries);
         $this->dateRules->shouldHaveReceived('modifiedTo')->once()->with('2023-11-30');
     }
 }

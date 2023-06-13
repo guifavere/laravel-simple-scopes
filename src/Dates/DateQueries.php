@@ -4,7 +4,7 @@ namespace GuiFavere\LaravelSimpleScopes\Dates;
 
 use Illuminate\Database\Eloquent\Builder;
 
-trait DateBuilder
+trait DateQueries
 {
     use SetUpDateRules;
 
