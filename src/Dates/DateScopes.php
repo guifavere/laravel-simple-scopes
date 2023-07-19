@@ -5,8 +5,8 @@ namespace GuiFavere\LaravelSimpleScopes\Dates;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * @method static Builder from(string $date)
- * @method static Builder to(string $date)
+ * @method static Builder createdFrom(string $date)
+ * @method static Builder createdTo(string $date)
  * @method static Builder modifiedFrom(string $date)
  * @method static Builder modifiedTo(string $date)
  */
