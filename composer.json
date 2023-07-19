@@ -46,6 +46,6 @@
     "scripts": {
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
         "lint": "@php ./vendor/bin/phpcbf --colors --standard=psr12 src tests",
-        "tests": "@php ./vendor/bin/phpunit --colors=always"
+        "test": "@php ./vendor/bin/phpunit --colors=always"
     }
 }

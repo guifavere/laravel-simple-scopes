@@ -14,8 +14,8 @@ composer require guifavere/laravel-simple-scopes
 
 Currently there are only scopes, and custom queries for dates. They are:
 ```php
-from::('2023-12-06');
-to::('2023-12-06');
+createdFrom::('2023-12-06');
+createdTo::('2023-12-06');
 modifiedFrom::('2023-12-06');
 modifiedTo::('2023-12-06');
 ```
@@ -25,7 +25,7 @@ You can use the trait: `DateScopes` inside the eloquent models, or the: `DateQue
 **Examples:**
 
 ```php
-use GuiFavere\Dates\DateScopes;
+use GuiFavere\LaravelSimpleScopes\Dates\DateScopes;
 
 class Resource extends Model
 {
@@ -34,7 +34,7 @@ class Resource extends Model
 ```
 
 ```php
-use GuiFavere\Dates\DateQueries;
+use GuiFavere\LaravelSimpleScopes\Dates\DateQueries;
 
 class ResourceQueryBuilder extends Builder
 {
