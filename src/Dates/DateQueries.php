@@ -8,14 +8,14 @@ trait DateQueries
 {
     use SetUpDateRules;
 
-    public function from(string $date): Builder
+    public function createdFrom(string $date): Builder
     {
-        return $this->dateRules($this)->from($date);
+        return $this->dateRules($this)->createdFrom($date);
     }
 
-    public function to(string $date): Builder
+    public function createdTo(string $date): Builder
     {
-        return $this->dateRules($this)->to($date);
+        return $this->dateRules($this)->createdTo($date);
     }
 
     public function modifiedFrom(string $date): Builder

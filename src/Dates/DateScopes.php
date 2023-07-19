@@ -14,14 +14,14 @@ trait DateScopes
 {
     use SetUpDateRules;
 
-    public function scopeFrom(Builder $query, string $date): Builder
+    public function scopeCreatedFrom(Builder $query, string $date): Builder
     {
-        return $this->dateRules($query)->from($date);
+        return $this->dateRules($query)->createdFrom($date);
     }
 
-    public function scopeTo(Builder $query, string $date): Builder
+    public function scopeCreatedTo(Builder $query, string $date): Builder
     {
-        return $this->dateRules($query)->to($date);
+        return $this->dateRules($query)->createdTo($date);
     }
 
     public function scopeModifiedFrom(Builder $query, string $date): Builder

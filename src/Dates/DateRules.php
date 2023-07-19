@@ -19,12 +19,12 @@ class DateRules implements Rules
         return new self($builder);
     }
 
-    public function from(string $date): Builder
+    public function createdFrom(string $date): Builder
     {
         return $this->builder->where('created_at', '>=', $date);
     }
 
-    public function to(string $date): Builder
+    public function createdTo(string $date): Builder
     {
         return $this->builder->whereDate('created_at', '<=', $date);
     }

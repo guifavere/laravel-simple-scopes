@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Builder;
 
 interface Rules
 {
-    public function from(string $date): Builder;
+    public function createdFrom(string $date): Builder;
 
-    public function to(string $date): Builder;
+    public function createdTo(string $date): Builder;
 
     public function modifiedFrom(string $date): Builder;
 

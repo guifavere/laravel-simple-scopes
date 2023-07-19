@@ -36,29 +36,29 @@ class DateScopesTest extends TestCase
     /** @test */
     public function should_retrieve_all_records_from_a_given_date(): void
     {
-        $this->dateRules->shouldReceive('from')->andReturn($this->mock(Builder::class));
+        $this->dateRules->shouldReceive('createdFrom')->andReturn($this->mock(Builder::class));
 
-        $this->dateScopes->from('2023-05-10');
+        $this->dateScopes->createdFrom('2023-05-10');
 
         $this->dateRules->shouldHaveReceived('new')->once()->withArgs(
             fn (Builder $arg) => $arg->toSql() === $this->dateScopes->toSql(),
         );
 
-        $this->dateRules->shouldHaveReceived('from')->once()->with('2023-05-10');
+        $this->dateRules->shouldHaveReceived('createdFrom')->once()->with('2023-05-10');
     }
 
     /** @test */
     public function should_retrieve_all_records_to_a_given_date(): void
     {
-        $this->dateRules->shouldReceive('to')->andReturn($this->mock(Builder::class));
+        $this->dateRules->shouldReceive('createdTo')->andReturn($this->mock(Builder::class));
 
-        $this->dateScopes->to('2023-01-07');
+        $this->dateScopes->createdTo('2023-01-07');
 
         $this->dateRules->shouldHaveReceived('new')->once()->withArgs(
             fn (Builder $arg) => $arg->toSql() === $this->dateScopes->toSql(),
         );
 
-        $this->dateRules->shouldHaveReceived('to')->once()->with('2023-01-07');
+        $this->dateRules->shouldHaveReceived('createdTo')->once()->with('2023-01-07');
     }
 
     /** @test */
