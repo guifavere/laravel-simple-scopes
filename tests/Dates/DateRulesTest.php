@@ -35,13 +35,13 @@ class DateRulesTest extends TestCase
     /** @test */
     public function should_retrieve_all_records_from_a_given_date(): void
     {
-        $this->assertEquals(4, $this->getDateRules()->from('2023-05-10')->count());
+        $this->assertEquals(4, $this->getDateRules()->createdFrom('2023-05-10')->count());
     }
 
     /** @test */
     public function should_retrieve_all_records_to_a_given_date(): void
     {
-        $this->assertEquals(1, $this->getDateRules()->to('2023-05-09')->count());
+        $this->assertEquals(1, $this->getDateRules()->createdTo('2023-05-09')->count());
     }
 
     /** @test */
